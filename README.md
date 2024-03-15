@@ -16,6 +16,7 @@
 
 [Project Roadmap](#roadmap)
 - [Exploratory Data Analysis](#eda)
+- [Preprocessing](#pre)
 - [Model Development](#develop)
 - [Model Interpretation](#interpret)
 - [Model Deployment](#deploy)
@@ -28,7 +29,7 @@
 
 ## Project Overview <a name="overview"></a>
 ### Introduction <a name="introduction"></a>
-My area of interest is to use machine learning to help identify social media content that are harmful to teens mental health. A challenge faced by many social media companies is the spread of child sexual abuse material online and other harmful content, such as, cyber bullying, drug sales and hate speach. Although there are tools, such as [Take it Down](https://takeitdown.ncmec.org/), that allow parents and minors to get images removed from social media, I want to take a more proactive approach to identify harmful content before it reaches the wrong audience. 
+My area of interest is to use machine learning to help identify social media content that are harmful to teens mental health. A challenge faced by many social media companies is the spread of child sexual abuse material online and other harmful content, such as, cyber bullying, drug sales and hate speech. Although there are tools, such as Take it Down, that allow parents and minors to get images removed from social media, I want to take a more proactive approach to identify harmful content before it reaches the wrong audience.
 ### Problem Statement <a name="problem"></a>
 The problem we try to address in this project is to use machine learning to automatically detect harmful texts. The users are teens and parents. Teens benefit from the removal of unhealthy social media, and avoid becoming a victim of online predators and cyberbullying, which can raise the risk of mental health conditions like anxiety, depression, and worst-case self-harm and death. Parents benefit from having a piece of mind knowing that their kids are been protected online. 
 ### Our Solution <a name="solution"></a>
@@ -48,6 +49,8 @@ The dataset includes several columns that provide valuable information for under
 - It consists of annotated tweets with information about their classification as hate speech, offensive language, or neither.
 - Each row represents a tweet along with the corresponding annotations provided by multiple annotators.
 - The main columns that will be essential for our analysis are: count(total number of annotations), hate_speech_count(number of annotations classifying a tweet as hate speech), offensive_language_count(number of annotations classifying a tweet as offensive language), neither_count(number of annotations classifying a tweet as neither hate speech nor offensive language).
+
+Data quality concerns: Although efforts have been made to ensure the accuracy of the data, it is important to acknowledge that annotations are subjective opinions provided by individual annotators. As such, there may be variations in classifications between annotators.
 ### Data Dictionary <a name="dictionary"></a>
 | Column | Data Type | Description |
 |--------|-----------|-------------|
@@ -63,16 +66,20 @@ The data collection methodology used to create this dataset involved obtaining t
 Dataset can be found on Huggingface [hate_speech_offensive](https://huggingface.co/datasets/tdavidson/hate_speech_offensive)
 ## Project Roadmap <a name="roadmap"></a>
 ### Exploratory Data Analysis <a name="eda"></a>
-- Perform text processing to remove stop words and tokenize tweets.
-- Perform bag of words vectorization.
-- Distribution of tweet counts per classification category (hate speech, offensive language, neither).
+- Check the shape and data structure.
+- Check for null values and duplicated rows.
 - Most common words/phrases associated with each class.
+- Distribution of tweet counts per classification category (hate speech, offensive language, neither).
 - Co-occurrence analysis to identify correlations between hate speech and offensive language. 
-
-Data quality concerns: Although efforts have been made to ensure the accuracy of the data, it is important to acknowledge that annotations are subjective opinions provided by individual annotators. As such, there may be variations in classifications between annotators.
+### Preprocessing <a name="pre"></a>
+- Train / Test Split
+- Correct class imbalance by re-sampling
+- Perform text processing via Count Vectorization
 ### Model Development <a name="develop"></a>
-- Split the dataset into training and testing sets for model evaluation purposes.
-- Perform Logistic Regression and KNN to compare model performances.
+- Perform base Logistic Regression
+- Perform base Decision Tree Classifier
+- Perform base KNN Classifier
+- Evaluate performances of the base models
 ### Model Interpretation <a name="interpret"></a>
 ### Model Deployment <a name="deploy"></a>
 ### User Interface Development <a name="uid"></a>
