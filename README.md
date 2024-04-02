@@ -1,57 +1,31 @@
-# Content Moderation on Social Media Apps
+# Content Moderation on Social Media Platforms
+## 🔎 Project Overview
+My project focuses on leveraging machine learning techniques for content moderation on social media platforms, specifically targeting the automatic detection of harmful texts. Through advanced natural language processing (NLP) methods, we aim to encode textual data into numerical matrices and employ machine learning models for sentiment analysis. By rigorously testing multiple models, we aim to identify the most effective approach in terms of accuracy, precision, and recall.
 
-## Table of Contents
+## 📖 Table of Contents
+1. [Project Motivation](#motivation)
+2. [The Data](#data)  
+3. [Data Dictionary](#dictionary)
+4. [Project Roadmap](#roadmap)
+5. [Learnings](#learning)
+6. [Conclusion](#conclusion)
+7. [Next Steps](#next)
 
-[Project Overview](#overview)
-- [Introduction](#introduction)
-- [Problem Statement](#problem)
-- [Our Solution](#solution)
-- [Objectives](#objectives)
-- [Potential Impact](#impact)
+## 💪🏽 Project Motivation <a name="motivation"></a>
+In today's digital age, social media plays a significant role in shaping the lives of teenagers. However, with this widespread influence comes the risk of exposure to harmful content that can negatively impact their mental health. As a concerned individual, I am motivated to create a safer online environment for teens and provide peace of mind for parents. By leveraging the power of machine learning, I aim to develop tools that can effectively identify and mitigate harmful content on social media platforms.
 
-[Dataset](#dataset)  
-- [Data Description](#description)
-- [Data Dictionary](#dictionary)
-- [Data Source](#source)
+My project aims to address the pressing issue of safeguarding teenagers from the detrimental effects of harmful content circulating on social media platforms. By employing advanced machine learning techniques, we strive to automatically detect and flag texts containing cyberbullying, hate speech, and other harmful material. Through our efforts, teenagers will benefit from a safer online experience, free from the threats of online predators and mental health risks. Furthermore, parents will gain reassurance knowing that proactive measures are in place to protect their children in the digital world. Together, we can make a meaningful impact by promoting online safety and well-being for the younger generation.
 
-[Project Roadmap](#roadmap)
-- [Exploratory Data Analysis](#eda)
-- [Preprocessing](#pre)
-- [Model Development](#develop)
-- [Model Interpretation](#interpret)
-- [Model Deployment](#deploy)
-- [User Interface Development](#uid)
+## 📊 The Data <a name="data"></a>
+This dataset is a meticulously curated collection of annotated tweets with the specific purpose of detecting hate speech and offensive language. The dataset primarily consists of English tweets and is designed to train machine learning models or algorithms in the task of hate speech detection. It consists of annotated tweets with information about their classification as hate speech, offensive language, or neither. Each row represents a tweet along with the corresponding annotations provided by multiple annotators.
 
-[Conclusion](#conclusion)
-- [Insights & Findings](#insight)
-- [Key Takeaways](#takeaway)
-- [Future Directions](#dir)
+The data collection methodology used to create this dataset involved obtaining tweets from Twitter's public API using specific search terms related to hate speech and offensive language. These tweets were then manually labeled by multiple annotators who reviewed them for classification purposes.
 
-## Project Overview <a name="overview"></a>
-### Introduction <a name="introduction"></a>
-My area of interest is to use machine learning to help identify social media content that are harmful to teens mental health. A challenge faced by many social media companies is the spread of child sexual abuse material online and other harmful content, such as, cyber bullying, drug sales and hate speech. Although there are tools, such as Take it Down, that allow parents and minors to get images removed from social media, I want to take a more proactive approach to identify harmful content before it reaches the wrong audience.
-### Problem Statement <a name="problem"></a>
-The problem we try to address in this project is to use machine learning to automatically detect harmful texts. The users are teens and parents. Teens benefit from the removal of unhealthy social media, and avoid becoming a victim of online predators and cyberbullying, which can raise the risk of mental health conditions like anxiety, depression, and worst-case self-harm and death. Parents benefit from having a piece of mind knowing that their kids are been protected online. 
-### Our Solution <a name="solution"></a>
-To address these issues, our proposed solution is to perform natural language processing (NLP) to encode text data into a numeric matrix then feed the numeric data into a machine learning model for sentiment analysis.
-### Objectives <a name="objectives"></a>
-Build machine learning models for automatic detection of hate speech and offensive language.
-### Potential Impact <a name="impact"></a>
-- **Sentiment Analysis**: By classifying tweets as hate speech, offensive language, or neither, the model can help in understanding the sentiment behind different tweets and identifying patterns of negative or offensive language. 
-- **Hate Speech Detection**: The model can automatically detect hate speech on Twitter and make it possible to create a system that can identify and flag hate speech in real-time, making social media platforms safer and more inclusive. 
-- **Content Moderation**: Social media platforms can use this model to improve their content moderation systems. By using machine learning algorithms trained on this data, it becomes easier to automatically detect and remove offensive or hateful content from the platform, reducing the burden on human moderators and improving user experience by keeping online spaces free from toxic behavior. 
-## Dataset <a name="dataset"></a>
-### Data Description <a name="description"></a>
-This dataset is a meticulously curated collection of annotated tweets with the specific purpose of detecting hate speech and offensive language. The dataset primarily consists of English tweets and is designed to train machine learning models or algorithms in the task of hate speech detection. 
-
-The dataset includes several columns that provide valuable information for understanding each tweet's classification. The column count represents the total number of annotations provided for each tweet, whereas hate_speech_count signifies how many annotations classified a particular tweet as hate speech. On the other hand, offensive_language_count indicates the number of annotations categorizing a tweet as containing offensive language. Additionally, neither_count denotes how many annotations identified a tweet as neither hate speech nor offensive language.
-- The dataset is presented in a CSV file format named 'train.csv'.
-- It consists of annotated tweets with information about their classification as hate speech, offensive language, or neither.
-- Each row represents a tweet along with the corresponding annotations provided by multiple annotators.
-- The main columns that will be essential for our analysis are: count(total number of annotations), hate_speech_count(number of annotations classifying a tweet as hate speech), offensive_language_count(number of annotations classifying a tweet as offensive language), neither_count(number of annotations classifying a tweet as neither hate speech nor offensive language).
+Dataset can be found on Huggingface [hate_speech_offensive](https://huggingface.co/datasets/tdavidson/hate_speech_offensive)
 
 Data quality concerns: Although efforts have been made to ensure the accuracy of the data, it is important to acknowledge that annotations are subjective opinions provided by individual annotators. As such, there may be variations in classifications between annotators.
-### Data Dictionary <a name="dictionary"></a>
+
+## 📖 Data Dictionary <a name="dictionary"></a>
 | Column | Data Type | Description |
 |--------|-----------|-------------|
 | count  | int | The total number of annotations for each tweet.
@@ -60,31 +34,63 @@ Data quality concerns: Although efforts have been made to ensure the accuracy of
 | neither_count | int | The number of annotations classifying a tweet as neither hate speech nor offensive language.
 | class | int | The category in which a tweet belongs to.
 | tweet | str | The actual text of the tweet.
-### Data Source <a name="source"></a>
-The data collection methodology used to create this dataset involved obtaining tweets from Twitter's public API using specific search terms related to hate speech and offensive language. These tweets were then manually labeled by multiple annotators who reviewed them for classification purposes.
 
-Dataset can be found on Huggingface [hate_speech_offensive](https://huggingface.co/datasets/tdavidson/hate_speech_offensive)
-## Project Roadmap <a name="roadmap"></a>
-### Exploratory Data Analysis <a name="eda"></a>
-- Check the shape and data structure.
-- Check for null values and duplicated rows.
-- Most common words/phrases associated with each class.
-- Distribution of tweet counts per classification category (hate speech, offensive language, neither).
-- Co-occurrence analysis to identify correlations between hate speech and offensive language. 
-### Preprocessing <a name="pre"></a>
-- Train / Test Split
-- Correct class imbalance by re-sampling
-- Perform text processing via Count Vectorization
-### Model Development <a name="develop"></a>
-- Perform base Logistic Regression
-- Perform base Decision Tree Classifier
-- Perform base KNN Classifier
-- Evaluate performances of the base models
-### Model Interpretation <a name="interpret"></a>
-### Model Deployment <a name="deploy"></a>
-### User Interface Development <a name="uid"></a>
-## Conclusion <a name="conclusion"></a>
-### Insights & Findings <a name="insight"></a>
-### Key Takeaways <a name="takeaway"></a>
-### Future Directions <a name="dir"></a>
-Use machine learning to also recognize harmful images, videos, and memes.
+## 🚙 Project Roadmap <a name="roadmap"></a>
+- [x] Milestone 1: Data Collection
+- [x] Milestone 2: Exploratory Data Analysis (EDA)
+- [x] Milestone 3: Preprocessing
+- [x] Milestone 4: Model Selection
+- [x] Milestone 5: Model Evaluation
+- [ ] Milestone 6: Model Deployment
+
+Project progression:
+
+I've trained and fine-tuned my models utilizing pipelines and GridSearchCV for the following algorithms:
+- Logistic Regression
+- Random Forest
+- XGBoost
+
+Here is our model summary:
+
+|Model|Vectorizer|Parameters|Train Accuracy (%)|Test Accuracy (%)|F1-Score (weighted avg)|Recall (weighted avg)
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|Logistic Regression|CountVectorizer|C=1|83.2|79.3|82|79|
+|Random Forest|Sentence2vecTransformer|max_depth=20, n_estimators=900|99.8|82.1|83|82|
+|XGBoost|Sentence2vecTransformer|max_depth=4, n_estimators=481|99.8|83.6|85|84|
+
+Based on Accuracy, Precision, Recall and F1 scores, I determined my best model was XGBoost.
+
+## 💡 Learnings <a name="learning"></a>
+Some learnings from the EDA and Feature Engineering:
+- There are 24783 rows and 6 columns in the dataset.
+- There are 0 NULL values in the dataset.
+- There are 0 duplicated rows in the dataset.
+- Our target column `class` is very imbalanced, with class 1 (offensive language) taking up 77% of the data, class 2(neither) taking up 17% and class 0 (hate speech) only 6%.
+![alt text](image.png)
+- After splitting our data into train and test, we upsampled class 0 and downsampled class 1 so that our training data consists of equal proportions of each class.
+- Next, let's look at the top 20 words that are most predictive of each class:
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
+
+Vectorization:
+- I created a custom tokenizer to clean the tweets before putting them into a vectorizer. This function will go through a 3 step process:
+1. Remove all punctuation and convert text to lower case.
+2. Split the string and remove stop words (common English words found in almost every sentence that will not be useful in predictions).
+3. Lemmatize each word in the string (normalize words so that different inflected forms of the same word are treated as the same word).
+- I developed a method to generate contextual embeddings that represent words or phrases in a high-dimensional space, capturing semantic similarity. This method utilizes LexVec and Wikipedia as pre-trained word vectors. Additionally, I crafted a custom transformer to seamlessly integrate this functionality into pipelines and gridsearchcv.
+
+## 🎬 Conclusion <a name="conclusion"></a>
+We see that XGBoost is the best performing model in terms of having the highest accuracy, F1 and recall scores. The model performs well in predicting instances belonging to class 1 - offensive language (high precision, recall, and F1-score) and class 2 - neither (high recall and relatively high F1-score), but it performs less well for class 0 - hate speech (low precision, recall, and F1-score). The weighted average precision, recall, and F1-score (0.87, 0.84, and 0.85, respectively) suggest that the model performs reasonably well overall, with some room for improvement, especially for class 0. This looks reasonable because our classes are extremely imbalanced with class 1 having the highest support (3838 instances), followed by class 2 (833 instances), and class 0 (286 instances). The model's overall accuracy is 0.84, indicating that the model correctly predicted 84% of all instances across all classes.
+
+## ⏭️ Next Steps <a name="next"></a>
+The model trained had adequate predictive power, however, next steps from here include:
+- Use machine learning to also recognize harmful images, videos, and memes.
+- Explore alternative vectorization techniques, such as, finding a pre-trained word vector library that is more suitable for informal languages like tweet.
+- Create a streamlit app and a dashboard to display my project and results thus far. 
+
+Features I believe would help create an even better model are:
+- User features (e.g. age, gender, location, user reputation).
+- Interaction features (e.g. likes, comments, shares)
+- Temporal context (e.g. time of postig, trends, and temporal patterns of harmful content).
+- Geolocation (e.g. geographic location of the content and its relevance to cultural or regional norms).
